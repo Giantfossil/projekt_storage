@@ -22,7 +22,7 @@ Berufliche Situation:
 
 ### Meine Intention
 
-Ich möchte anhand dieser Repository mir ein Homelab einrichten. Die Umgebung soll mich darin unterstützen mein Interese in den Bereichen: Storage, Virtualisierung/Containerisierung und Datenmigration zu unterstützten. Die Effektivität und Integrität dieses Setups werde ich anhand von Messprotokollen (Startwert) und den fortlaufenden Monitorings (Deltawerte) der Umgebung bewerten.
+Ich möchte anhand dieser Repository mir ein Homelab einrichten. Die Umgebung soll mich darin unterstützen mein Interesse in den Bereichen: Storage, Virtualisierung/Containerisierung und Datenmigration zu unterstützten. Die Effektivität und Integrität dieses Setups werde ich anhand von Messprotokollen (Startwert) und den fortlaufenden Monitorings (Deltawerte) der Umgebung bewerten.
 Bewertet wird wie bereit einmal erwähnt:
 * Integrität (Datenträger)
 * Datendurchsatz Engpässe (Zukünftige Weiterentwicklung)
