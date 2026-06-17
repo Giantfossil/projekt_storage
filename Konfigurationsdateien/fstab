@@ -1,0 +1,32 @@
+# /etc/fstab: static file system information.
+# 'blkid'  # See fstab(5).
+# <file system>             <mount point>  <type>  <options>  <dump>  <pass>
+
+# --- DDR4 32GB --- -------------------------------------------------------------------------------------------------------------------------------------------
+tmpfs                           /tmp        tmpfs   defaults,noatime,nosuid,nodev,mode=1777,size=2G                             0 0
+# --- NVMe 466GB - nvme0n1p1 --- ------------------------------------------------------------------------------------------------------------------------------
+UUID=00CF-12A3 					/efi 		vfat 	noatime,nodev,noexec,nosuid,dmask=0077,fmask=0177                           0 2
+# --- NVMe 466GB - nvme0n1p3 --- ------------------------------------------------------------------------------------------------------------------------------
+UUID=aed65ce3-3e8f-4388-89d1-f1ff56d20083 	/              	btrfs   subvol=/@,subvolid=5,rw,noatime,compress=zstd:3,commit=30,space_cache=v2     0 0
+UUID=aed65ce3-3e8f-4388-89d1-f1ff56d20083 	/.snapshots 	btrfs   subvol=@.snapshots,noatime,x-gvfs-show 	                                     0 0
+UUID=aed65ce3-3e8f-4388-89d1-f1ff56d20083 	/var/tmp	    btrfs	subvol=/@tmp,subvolid=261,noatime,nodatacow,nodev,nosuid,noexec              0 0
+UUID=aed65ce3-3e8f-4388-89d1-f1ff56d20083 	/var/cache     	btrfs   subvol=/@cache,subvolid=258,rw,noatime,nodev,nosuid,noexec,compress=zstd:1   0 0
+# --- SSD 477GB - sdc --- -------------------------------------------------------------------------------------------------------------------------------------
+LABEL=libvirt   /var/lib/libvirt            xfs  defaults,nofail,nodev,nosuid,allocsize=64m             0 0
+LABEL=opt       /opt                        xfs  defaults,nofail,nodev,noatime                          0 0
+LABEL=var-log   /var/log                    xfs  defaults,nodev,nosuid,noexec                           0 0
+LABEL=ccache    /home/giant/.cache/ccache   xfs  defaults,nofail,nodev,nosuid,noexec,noatime            0 0
+LABEL=build     /home/giant/.cache/build    xfs  defaults,nofail,nodev,nosuid,noexec,noatime,largeio    0 0
+# --- RAID0 1TB - md0 --- -------------------------------------------------------------------------------------------------------------------------------------
+LABEL=home_raid1 /home			                            btrfs	subvol=@home,defaults,rw,nodev,nosuid,noatime,compress=zstd:2                  0 0
+LABEL=home_raid1 /home/.snapshots                           btrfs	subvol=@home_snapshots,noatime,nodatacow,noexec,nodev                          0 0
+UUID=69afb559-3b88-452d-8bb9-1cd4c39603b0 /var/lib/docker	btrfs	subvol=/@docker,subvolid=257,noatime,nodatacow,nodev,nosuid,space_cache=v2     0 0
+# ––– HDD 3.5" 2TB Extern –––----------------------------------------------------------------------------------------------------------------------------------
+UUID=f80a819d-f446-4628-8978-c8f4a00ff4e4 /mnt/Backup 	ext4 	nosuid,noatime,noexec,nodev,nofail,x-gvfs-show,errors=remount-ro,x-systemd.idle-timeout=480,x-systemd.device-timeout=0,x-systemd.mount-timeout=40,x-systemd.automount 0 2
+
+
+# --- HDD 3.5" 2TB SMR - Send/Receive - ----------------------------------------------------------------------------------------------------------
+#UUID=xxxx /mnt/snapshots_archiv btrfs nosuid,noatime,lazytime,noexec,nodev,compress=zstd 0 0
+# --- Bind --- Emergency / Wartung --- -----------------------------------------------------------------------------------------------------------------------------------
+#UUID=f80a819d-f446-4628-8978-c8f4a00ff4e4 /mnt/Backup ext4 defaults,auto 0 0
+#/mnt/Backup/3_workstation/home /home/	none 	defaults,auto,user,bind 0 0

@@ -1,0 +1,2 @@
+ccache konfigurieren: Setze in deiner ccache.conf (falls du sie nicht in $XDG_CONFIG_HOME/ccache/ hast):
+cache_dir = $XDG_CACHE_HOME/ccache
