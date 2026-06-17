@@ -1,7 +1,7 @@
 # Storage-Einrichtung & Implementierung
 
 > **WICHTIGER HINWEIS (Secure Erase):** 
-Bevor man mit der Formatierung und Partitionierung beginnst, wird dringend empfohlen, alle SSDs (inkl. NVMe) einem Secure Erase zu unterziehen (z.B. mittels `nvme format` oder `hdparm`). Dadurch werden die Flash-Zellen in ihren Ursprungszustand zurückversetzt, alte Controller-Mappings gelöscht und die maximale Performance für die Benchmarks sichergestellt.
+Bevor man mit der Formatierung und Partitionierung beginnt, wird dringend empfohlen, alle SSDs (inkl. NVMe) einem Secure Erase zu unterziehen (z.B. mittels `nvme format` oder `hdparm`). Dadurch werden die Flash-Zellen in ihren Ursprungszustand zurückversetzt, alte Controller-Mappings gelöscht und die maximale Performance für die Benchmarks sichergestellt.
 
 **Beispiel für eine NVMe-SSD:**
 ```bash
@@ -13,22 +13,25 @@ sudo nvme format /dev/nvme0n1 --ses=1
 ```
 
 > **HINWEIS (Firmware):**
-Es lohnt sich generell ein Firmware Update seiner Datentraeger Hardware zu machen.
-In meinen Fall:
+Es besteht die Möglichkeit, ein Firmware-Update seiner Datenträger-Hardware durchzuführen.
+In meinem Fall:
   * `OpenSeaChest` (Seagate)
     - NCQ-Einstellungen anpassen (z.B. Queue Depth, Command Queuing)
     - Firmware-spezifische Optimierung
     - SMART-Daten auslesen und anpassen
-  * `samsung-ssd-fwupdate` (Samsung)
-  * samsung-ssd-dc-toolkit
-  * samsung_magician-consumer-ssd
-  * samloader-git
+  * `samsung-ssd-fwupdate` / `Samsung Magician` (Samsung)
+  * `crucial-storage-executive` (Crucial)
+  * `smartmontools` / `hdparm` (Toshiba & Allgemein)
   
   
-  | Festplatte | NCQ-Unterstützung | OpenSeaChest-Unterstützung | Mögliche Vorteile |
-  | --- | --- | --- | --- |
-  | ST1000LM024 HN-M101MBB | Ja | Ja | NCQ-Optimierung, Queue Depth anpassen, SMART-Daten detailliert auslesen |
-  | ST2000DM001-1CH164 | Ja | Ja | NCQ-Optimierung, Queue Depth anpassen, Firmware-spezifische Einstellungen |
+  | Datenträger | Modell | Typ / Protokoll | Tool-Unterstützung | Mögliche Vorteile |
+  | --- | --- | --- | --- | --- |
+  | `/dev/sdb` | ST1000LM024 HN-M101MBB (Seagate) | HDD / SATA | `OpenSeaChest` | NCQ-Optimierung, Queue Depth anpassen, detailliertes SMART |
+  | `/dev/sde` | ST2000DM001-1CH164 (Seagate) | HDD / SATA | `OpenSeaChest` | NCQ-Optimierung, Queue Depth anpassen, Firmware-Einstellungen |
+  | `/dev/sda` | Samsung SSD 850 EVO 250GB | SSD / SATA | `samsung-ssd-fwupdate`, `Magician` | Firmware-Update, Over-Provisioning, Gesundheitsstatus prüfen |
+  | `/dev/sdc` | Samsung SSD 850 PRO 512GB | SSD / SATA | `samsung-ssd-fwupdate`, `Magician` | Firmware-Update, Over-Provisioning, Gesundheitsstatus prüfen |
+  | `/dev/nvme0n1`| Crucial CT500P5SSD8 | SSD / NVMe | `crucial-storage-executive` | Firmware-Update, Namespace-Verwaltung, Secure Erase, SMART |
+  | `/dev/sdd` | TOSHIBA MQ01ABD100 | HDD / SATA | `smartmontools`, `hdparm` | Allgemeine SMART-Überwachung, APM/AAM-Anpassungen |
 
 Diese Dokumentation beinhaltet alle notwendigen Befehle, um die in der SOLL-Architektur definierten Datenträgerstrukturen umzusetzen.
 

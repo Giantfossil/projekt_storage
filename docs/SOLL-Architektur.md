@@ -2,21 +2,21 @@
 
 ## Designziele:
 
-> Ziele des Tier-Leveling, priorisierung und des einfachen Handlings
+> Ziele des Tier-Leveling, Priorisierung und des einfachen Handlings
 
 **NVMe:**
-- Kapazität entlasten durch Auslagerung Cold-Daten (`@home` und ältere Snapshots) (inkl. automatisch schlankeren Snapshots-Schreibprozessren)
-- Auslagerung systemunrelevanteren schreibintensiven Prozesse (`/var/log`) und primär für Latenz forderne Zugriffen verwenden
-- Formatierung in deinen für SSD geeigneten Dateisystem (`BtrFS`) das zusätzlich mit einer Snapshotfunktion ausgestattet ist.
+- Kapazität entlasten durch Auslagerung von Cold-Daten (`@home` und ältere Snapshots) (inkl. automatisch schlankerer Snapshots-Schreibprozesse)
+- Auslagerung systemunrelevanter schreibintensiver Prozesse (`/var/log`) und primär für Latenz fordernde Zugriffe verwenden
+- Formatierung in einem für SSDs geeigneten Dateisystem (`BtrFS`), das zusätzlich mit einer Snapshot-Funktion ausgestattet ist.
 **RAID1:**
-- Formatierung in `BtrFS` für die schneller Übertragung älterer Snapshots
-- redudantere Speicherung von Cold-Daten auf den HDDs
-- Zentralisierung und Vereinfacherung von konsolidierung relevanteren Daten (Benutztereinstellung/-anpassungen, Dokumentationsunterlagen und fertigen ContainerImages)
+- Formatierung in `BtrFS` für die schnellere Übertragung älterer Snapshots
+- Redundante Speicherung von Cold-Daten auf den HDDs
+- Zentralisierung und Vereinfachung der Konsolidierung relevanter Daten (Benutzereinstellungen/-anpassungen, Dokumentationsunterlagen und fertigen Container-Images)
 - Caching von 200GB der meist genutzten Daten anhand eines SSD-bcaches
 **SSD:**
-- Priorisierung von Prozessen (Compiler-Cache, Build-Artefakte, VM-Images) auf einen dedizierte SSD Datenträger
-- Outressourcen und isolierung von zufälligen schreibintensiven I/O-Prozessen (`ccache`,`build`,`libvirt`), für eine gleichmäßigeren Lastverteilung
-- Formatierung in einen für die Aufgaben geeigneteren Dateisystem (`xfs`), in dem auch die Snapshots Funktion bzw CoW nicht zangsläufig wichtig ist (Backup via `rsync` der Partition: /dev/sdc1 erfüllt die Anforderungen)
+- Priorisierung von Prozessen (Compiler-Cache, Build-Artefakte, VM-Images) auf einem dedizierten SSD-Datenträger
+- Outsourcing und Isolierung von zufälligen, schreibintensiven I/O-Prozessen (`ccache`, `build`, `libvirt`), für eine gleichmäßigere Lastverteilung
+- Formatierung in einem für die Aufgaben geeigneteren Dateisystem (`xfs`), in dem auch die Snapshot-Funktion bzw. CoW nicht zwangsläufig wichtig ist (Backup via `rsync` der Partition: /dev/sdc1 erfüllt die Anforderungen)
 
 ## Geräteübersicht
 
