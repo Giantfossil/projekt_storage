@@ -42,13 +42,16 @@ Bewertet wird wie bereit einmal erwähnt:
 
 ## SOLL-Architektur
 
+* [Konzeptskizze](/docs/Konzeptskizze.pdf)
 * [SOLL-Architektur](/docs/SOLL-Architektur.md)
 
 ## Initalisierung
 
 * [Storage-Einrichten](/docs/Storage-Einrichten.md)
 
-## Betrieb
+## Konfiguration von Dienste
+
+## Administration
 
 * [Storage-Administration](/docs/Storage-Administration.md)
 
