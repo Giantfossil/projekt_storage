@@ -22,7 +22,11 @@ Berufliche Situation:
 
 ### Meine Intention
 
+<<<<<<< HEAD
 Ich möchte anhand dieser Repository mir ein Homelab einrichten. Die Umgebung soll mich darin unterstützen mein Interese in den Bereichen: Storage, Virtualisierung/Containerisierung und Datenmigration zu unterstützten. Die Effektivität und Integrität dieses Setups werde ich anhand von Messprotokollen (Startwert) und den fortlaufenden Monitorings (Deltawerte) der Umgebung bewerten.
+=======
+Ich möchte anhand dieser Repository mir ein Homelab einrichten. Die Umgebung soll mich darin unterstützen mein Interesse in den Bereichen: Storage, Virtualisierung/Containerisierung und Datenmigration zu unterstützten. Die Effektivität und Integrität dieses Setups werde ich anhand von Messprotokollen (Startwert) und den fortlaufenden Monitorings (Deltawerte) der Umgebung bewerten.
+>>>>>>> origin/main
 Bewertet wird wie bereit einmal erwähnt:
 * Integrität (Datenträger)
 * Datendurchsatz Engpässe (Zukünftige Weiterentwicklung)
@@ -56,4 +60,8 @@ Bewertet wird wie bereit einmal erwähnt:
   - backup rsync
   - snapper
   - git setup
+<<<<<<< HEAD
   - repo init und remote syncz
+=======
+  - repo init und remote sync
+>>>>>>> origin/main
