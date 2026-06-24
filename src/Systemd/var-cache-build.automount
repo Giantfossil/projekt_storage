@@ -1,0 +1,11 @@
+[Unit]
+Description=Automount fuer Build Cache SSD-Partition
+Documentation=file:///home/giant/srv/Projekte/projekt_storage/docs/systemd_units_handout.md
+
+[Automount]
+Where=/var/cache/build
+# Timeout in Sekunden, nach denen bei Inaktivität ausgehängt wird (0 = deaktiviert)
+TimeoutIdleSec=600
+
+[Install]
+WantedBy=multi-user.target

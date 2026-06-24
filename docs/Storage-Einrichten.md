@@ -96,19 +96,19 @@ sudo sysctl --system
 
 ## 4. Userspace-Caches & Bindmounts vorbereiten
 
-Damit die Bindmounts aus der `fstab` fehlerfrei funktionieren, müssen die Ziel- und Quellverzeichnisse vorab erstellt und mit den richtigen Berechtigungen versehen werden. (Hier beispielhaft für den Nutzer `dorian`).
+Damit die Bindmounts aus der `fstab` fehlerfrei funktionieren, müssen die Ziel- und Quellverzeichnisse vorab erstellt und mit den richtigen Berechtigungen versehen werden. (Hier für den Nutzer `giant`).
 
 ```bash
 # Mountpoints im Home-Verzeichnis anlegen
-mkdir -p /home/dorian/.cache/build
-mkdir -p /home/dorian/.cache/ccache
-chown dorian:dorian /home/dorian/.cache/build
-chown dorian:dorian /home/dorian/.cache/ccache
+mkdir -p /home/giant/.cache/build
+mkdir -p /home/giant/.cache/ccache
+chown giant:giant /home/giant/.cache/build
+chown giant:giant /home/giant/.cache/ccache
 
 # Berechtigungen auf SSD-Seite sicherstellen
 sudo chmod 1777 /tmp
 sudo chmod 1777 /var/tmp
 sudo mkdir -p /var/cache/build /var/cache/ccache
-sudo chown dorian:dorian /var/cache/build
-sudo chown dorian:dorian /var/cache/ccache
+sudo chown giant:giant /var/cache/build
+sudo chown giant:giant /var/cache/ccache
 ```

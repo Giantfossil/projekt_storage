@@ -1,0 +1,14 @@
+[Unit]
+Description=Monatliche Ausfuehrung der automatischen Speicher-Wartung
+Documentation=file:///home/giant/srv/Projekte/projekt_storage/docs/systemd_units_handout.md
+
+[Timer]
+# Jeden 1. des Monats um 02:00 Uhr nachts ausführen
+OnCalendar=*-*-01 02:00:00
+# Falls das System zu dem Zeitpunkt aus war, den Lauf beim nächsten Boot nachholen
+Persistent=true
+# Zeitfenster vergrößern, um zeitgleiche Timer nicht zu blockieren (zufällige Verzögerung bis zu 15 Min)
+RandomizedDelaySec=900
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=Bedarfsgesteuertes Einhaengen des externen Backup-Laufwerks
+Documentation=file:///home/giant/srv/Projekte/projekt_storage/docs/systemd_units_handout.md
+
+[Automount]
+Where=/mnt/Backup
+# Nach 10 Minuten Inaktivität automatisch aushängen (vermindert Datenverlustrisiko bei Trennung)
+TimeoutIdleSec=600
+
+[Install]
+WantedBy=multi-user.target

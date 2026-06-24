@@ -37,6 +37,20 @@ Bewertet wird, wie bereits einmal erwähnt:
 * [IST-Architektur (Dokumentation)](/docs/IST-Architektur.md)
 * **Status-Update:** Skript für RAID1 & Bcache-Setup (`/src/Setup_RAID1_Bcache.sh`) erstellt.
 * **Status-Update:** Skript für NVMe-Setup (`/src/Setup_NVMe.sh`) erstellt.
+* **Status-Update:** Skript für fstrim-Setup (`/src/Setup_fstrim.sh`) erstellt.
+* **Status-Update:** Skript für SSD-Setup (`/src/Setup_SSD.sh`) erstellt.
+* **Status-Update:** Skript für ccache-Konfiguration (`/src/Setup_ccache.sh`) erstellt.
+* **Status-Update:** Skript für SSD-Backup (`/src/backup_ssd.sh`) erstellt.
+* **Status-Update:** Skript für libvirt-Setup (`/src/Setup_libvirt.sh`) erstellt.
+* **Status-Update:** Skript für Docker-Setup (`/src/Setup_Docker.sh`) erstellt.
+* **Status-Update:** Dokumentation für udev-Regeln und Best Practices (`/docs/udev_handout.md`) erstellt.
+* **Status-Update:** Skript für Performance-Messungen (`/src/Messungen/Messung.sh`) überarbeitet und abgesichert.
+* **Status-Update:** Skript für SMART- und RAID-Healthchecks (`/src/Messungen/Healthcheck_Messung.sh`) erstellt.
+* **Status-Update:** Git- und Repository-Handbuch (`/docs/Git_Anleitung.md`) erstellt.
+* **Status-Update:** Skript für automatische Speicher-Wartung (`/src/Wartung_Storage.sh`) erstellt.
+* **Status-Update:** Skript für Failover-Szenario und RAID1-Wiederaufbau (`/src/Failover_Szenario_Test.sh`) erstellt.
+* **Status-Update:** Dokumentation für systemd-Units und Mount-Optimierungen (`/docs/systemd_units_handout.md`) erstellt.
+* **Status-Update:** systemd-Unit-Vorlagen für Backup-Automounts und Speicherwartung (`/src/Systemd/`) erstellt.
 
 ## SOLL-Architektur
 
@@ -73,8 +87,8 @@ LABEL=md0_home   /home/.snapshots   btrfs  subvol=@home_snapshots,noatime,nodata
 LABEL=md0_home   /var/lib/docker    btrfs  subvol=/@docker,subvolid=257,noatime,nodatacow,nodev,nosuid,space_cache=v2 0 0
 
 # Bindmounts — Userspace-Caches
-/var/cache/build   /home/dorian/.cache/build   none  defaults,bind,nofail,x-systemd.requires=/var/cache/build   0 0
-/var/cache/ccache  /home/dorian/.cache/ccache  none  defaults,bind,nofail,x-systemd.requires=/var/cache/ccache  0 0
+/var/cache/build   /home/giant/.cache/build   none  defaults,bind,nofail,x-systemd.requires=/var/cache/build   0 0
+/var/cache/ccache  /home/giant/.cache/ccache  none  defaults,bind,nofail,x-systemd.requires=/var/cache/ccache  0 0
 
 # tmpfs
 tmpfs     /tmp  tmpfs  defaults,noatime,nosuid,nodev,size=3G,mode=1777  0 0

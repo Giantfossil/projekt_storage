@@ -1,0 +1,13 @@
+[Unit]
+Description=Build Cache SSD-Partition (XFS)
+Documentation=file:///home/giant/srv/Projekte/projekt_storage/docs/SOLL-Architektur.md
+After=local-fs.target
+
+[Mount]
+What=/dev/disk/by-label/build
+Where=/var/cache/build
+Type=xfs
+Options=defaults,noatime,nodiratime,nodev,nosuid,nofail
+
+[Install]
+WantedBy=multi-user.target

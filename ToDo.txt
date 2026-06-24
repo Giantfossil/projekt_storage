@@ -1,0 +1,36 @@
+ToDo
+
+NVMe
+  * Subvol (Flat)                         [x]
+  * Subvol (Nested) `/.snapshots/`        [x]
+  * Snapshots konfiguriert `Snapper`      [x]
+  * Backups konfiguriert `btrbk`          [x]
+  * Entlastet von I/O Workloads           [x]
+  * Optimierung via Mountoptionen         [x]
+  * Dauerhafte Pflege `balance` `scrubs`  [x]
+  * Failover Szenario Funktionstest       [x]
+SoftwareRAID1
+  * Mdadm und Bcache eingerichtet         [x]
+  * I/O Scheduler angepasst               [x]
+  * Subvol (Nested) `/home/.snapshots/`   [x]
+  * Snapshots konfiguriert `Snapper`      [x]
+  * Backups konfiguriert `btrbk`          [x]
+  * Optimierung via Mountoptionen         [x]
+  * Dauerhafte Pflege `balance` `scrubs`  [x]
+  * Failover Szenario Funktionstest       [x]
+SSD
+  * Partitioniert und Rechte angepasst    [x]
+  * ccache konfiguriert                   [x]
+  * bind ccache und build auf /home/giant [x]
+  * Backup konfiguriert `rsync`           [x]
+  * VM via libvirt                        [x]
+  * Docker via docker                     [x]
+  * xfs + 80GiB unformatiert              [x]
+  * Optimiert via Mountoptionen           [x]
+Logs
+  * I/O Messungen                         [x]
+  * Healthcheck                           [x]
+Repository
+  * repository eingerichtet               [x]
+  * remote repository verknüpft           [x]
+  * anleitung erstellt                    [x]

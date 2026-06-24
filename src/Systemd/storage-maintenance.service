@@ -1,0 +1,10 @@
+[Unit]
+Description=Automatische Speicher-Wartung (Btrfs Scrub/Balance & XFS Defrag)
+Documentation=file:///home/giant/srv/Projekte/projekt_storage/docs/Storage-Administration.md
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/giant/srv/Projekte/projekt_storage/src/Wartung_Storage.sh
+StandardOutput=journal
+StandardError=journal
