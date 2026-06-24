@@ -1,5 +1,4 @@
 # Projekt /// Storage
-=====================================
 
 > Kurzebeschreibung: Das Projekt befasst sich um die Einrichtung eines Storagesystems und einer Analyse inkl Auswertung.
 > Abgrenzung:  Der Fokus dieses Projektes bezieht sich auf eine lokale Linux Umgebung. Technischen grenzt sich das Projekt in der Ausstattung zu einer professionellen Umgebung ab (Datentraeger etc.). Die verfolgte Ziele dienen einer privaten produktiven Umgebung mit Lastverteilung und priorisierten Prozessen.
@@ -54,12 +53,4 @@ Bewertet wird wie bereit einmal erwähnt:
 * [Storage-Administration](/docs/Storage-Administration.md)
 
 ## Messungen
-
-
-*Es fehlt noch:*
-  - fstrim
-  - backup rsync
-  - snapper
-  - git setup
-  - repo init und remote sync
 
